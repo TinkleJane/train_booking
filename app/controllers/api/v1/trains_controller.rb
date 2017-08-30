@@ -1,6 +1,6 @@
 class Api::V1::TrainsController < ApiController
   def index
-    @trains = Train.all
+    @trains = Train.paginate(:page => params[:page], :per_page => 30)
   end
 
   def show
